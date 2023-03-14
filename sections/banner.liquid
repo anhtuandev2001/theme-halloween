@@ -1,4 +1,4 @@
-<section
+<div
   class="banner flex-center p-relative"
   {% if section.settings.image != blank %}
   style="background: url({{ section.settings.image | img_url: '1500x1010' }}) center/cover no-repeat;"
@@ -40,11 +40,12 @@
     <p class="countdomwn__text">SECS</p>
     </span>
     </div> {% endcomment %}</div>
-</section>
+</div>
 
 {% schema %}
   {
     "name": "banner",
+    "tag": "section",
     "settings": [
       {
         "type": "text",

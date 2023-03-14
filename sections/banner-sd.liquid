@@ -1,4 +1,4 @@
-<section
+<div
   class="banner flex-center text-center p-relative"
   {% if section.settings.image != blank %}
   style="background: url({{ section.settings.image | img_url: '1500x1010' }}) center/cover no-repeat;"
@@ -11,11 +11,12 @@
     <h2 class="banner__heading h1 text-center banner-shadow">{{ section.settings.heading }}</h2>
     {% comment %} <a href="{{ section.settings.link }}" class="btn btn--shop-now banner__btn banner-shadow">{{ section.settings.linktext }}</a> {% endcomment %}
   </div>
-</section>
+</div>
 
 {% schema %}
   {
     "name": "banner-sd",
+    "tag": "section",
     "settings": [
       {
         "type": "text",

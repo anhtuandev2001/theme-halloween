@@ -1,4 +1,4 @@
-<section class="section">
+
   <h3 class="section__heading h2 text-center footer__heading">{{ section.settings.heading }}</h3>
   <div class="row no-gutters justify-center">
     {% for block in section.blocks %}
@@ -19,11 +19,13 @@
       </div>
     {% endfor %}
   </div>
-</section>
+
 
 {% schema %}
   {
     "name": "flow",
+    "tag": "section",
+"class": "section",
     "settings": [
       {
         "type": "text",

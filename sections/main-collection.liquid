@@ -1,34 +1,57 @@
-{{ 'collection.css' | asset_url | stylesheet_tag}}
+{{ 'collection.css' | asset_url | stylesheet_tag }}
 
-<section class="section">
-    <h1 class="section__heading h1 text-main text-center">{{ collection.title }}</h1>
-    <div class="container">
-        <div class="row collection__product-list">
-            {% for product in collection.products %}
-            <div class="col l-3 m-6 c-12">
-                <div class="collection__product-item">
-                    <a href="{{ product.url }}" class="d-block text-light">
-                        <img src="{{ product.featured_image | img_url: '1000x' }}" alt=""
-                            class="full-width object-cover collection__product-img">
-                        <h2 class="collection__product-title">{{ product.title }}</h2>
-                        <span class="collection__product-price">{{ product.price | money_without_trailing_zeros}}</span>
-                    </a>
-                    <div class="add-to-cart">
-                        <select class="product-select " name="id">
-                            {% for variant in product.variants %}
-                            <option value="{{ variant.id }}">
-                                {{ variant.title }}
-                            </option>
-                            {% endfor %}
-                        </select>
-                        <input type="number" class=" quantity" name="quantity" value="1" min="1" max="100">
-                        <button type="button"
-                            class="add-to-cart-btn btn btn--shop-now product__btn d-block full-width">Add
-                            to cart</button>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
+<h1 class="section__heading h1 text-main text-center">{{ collection.title }}</h1>
+<div class="container">
+  <div class="row collection__product-list">
+    {% for product in collection.products %}
+      <div class="col l-3 m-6 c-12">
+        <div class="collection__product-item">
+          <a href="{{ product.url }}" class="d-block text-light">
+            <img
+              src="{{ product.featured_image | img_url: '1000x' }}"
+              alt=""
+              class="full-width object-cover collection__product-img"
+            >
+          </a>
+          <a href="{{ product.url }}" class="d-block text-light">
+            <h3 class="collection__product-title">{{ product.title }}</h3>
+          </a>
+          <span class="collection__product-price text-light">{{ product.price | money_without_trailing_zeros }}</span>
+          <div class="add-to-cart">
+            <select class="product-select " name="id">
+              {% for variant in product.variants %}
+                <option value="{{ variant.id }}">
+                  {{ variant.title }}
+                </option>
+              {% endfor %}
+            </select>
+            <input type="number" class=" quantity" name="quantity" value="1" min="1" max="100">
+            <button
+              type="button"
+              class="add-to-cart-btn btn btn--shop-now product__btn d-block full-width"
+            >
+              Add to cart
+            </button>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "main-collection",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "main-collection",
+      "settings": {},
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

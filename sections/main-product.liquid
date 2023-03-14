@@ -1,65 +1,60 @@
-{{ 'product.css '| asset_url | stylesheet_tag }}
+{{ 'product.css ' | asset_url | stylesheet_tag }}
 
-<section class="section">
-    <div class="container">
-        <div class="row product__list">
-            <div class="col l-7">
-                <div class="product__item">
-                    <img src="{{ product.featured_image | img_url: '2000x' }}" alt="{{ product.title }}"
-                        class="product__img object-cover">
-                </div>
-            </div>
-            <div class="col l-5">
-                <div class="product__item js-product__item">
-                    <p class="product__shop-name text-main">{{ shop.name }}</p>
-                    <h1 class="product__title h2 text-main">{{ product.title }}</h1>
-                    <div class="product__price-container text-light">
-                        <span class="product__price">{{ product.price | money_without_trailing_zeros }}</span>
-                        {% if product.available == false %}
-                        <span class="sold-out">Sold out</span>
-                        {% endif %}
-                    </div>
-                    {% comment %}
-                    Remove the form and replace with a button to trigger adding the product to the cart
-                    {% endcomment %}
-                            <div class="add-to-cart">
-                  <select class="product-select" name="id">
-                    {% for variant in product.variants %}
-                    <option value="{{ variant.id }}">
-                      {{ variant.title }}
-                    </option>
-                    {% endfor %}
-                  </select>
-                  {% comment %} <input type="number" class= quantity" name="quantity" value="1" min="1" max="100"> {% endcomment %}
-                  <button type="button" class="add-to-cart-btn btn btn--shop-now product__btn d-block full-width">Add
-                    to cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="container">
+  <div class="row product__list">
+    <div class="col l-7">
+      <div class="product__item">
+        <img
+          src="{{ product.featured_image | img_url: '2000x' }}"
+          alt="{{ product.title }}"
+          class="product__img object-cover"
+        >
+      </div>
     </div>
-</section>
+    <div class="col l-5">
+      <div class="product__item js-product__item">
+        <p class="product__shop-name text-main">{{ shop.name }}</p>
+        <h1 class="product__title h2 text-main">{{ product.title }}</h1>
+        <div class="product__price-container text-light">
+          <span class="product__price">{{ product.price | money_without_trailing_zeros }}</span>
+          {% if product.available == false %}
+            <span class="sold-out">Sold out</span>
+          {% endif %}
+        </div>
+        {% comment %}
+          Remove the form and replace with a button to trigger adding the product to the cart
+        {% endcomment %}
+        <div class="add-to-cart">
+          <select class="product-select" name="id">
+            {% for variant in product.variants %}
+              <option value="{{ variant.id }}">
+                {{ variant.title }}
+              </option>
+            {% endfor %}
+          </select>
+          {% comment %} <input type="number" class= quantity" name="quantity" value="1" min="1" max="100"> {% endcomment %}
+          <button type="button" class="add-to-cart-btn btn btn--shop-now product__btn d-block full-width">
+            Add to cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% schema %}
 {
-"name": "product",
-"settings": [
-{
-"type": "image_picker",
-"id": "logo",
-"label": "logo"
-}, {
-"type": "link_list",
-"id": "menu",
-"label": "menu"
-}
-],
-"presets": [
-{
-"name": "product",
-"settings": {},
-"blocks": []
-}
-]
+  "name": "main-product",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "main-product",
+      "settings": {},
+      "blocks": []
+    }
+  ]
 }
 {% endschema %}

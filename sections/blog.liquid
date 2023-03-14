@@ -1,4 +1,4 @@
-<section class="section">
+
   <div class="container">
     <a href="{{ section.settings.blog.url }}" class="d-block section__heading blog__heading h2 text-center">{{ section.settings.blog.title }}</a>
     <div class="row blog__list">
@@ -23,12 +23,14 @@
       {% endfor %}
     </div>
   </div>
-</section>
+
 
 
 {% schema %}
   {
     "name": "blog",
+    "tag": "section",
+"class": "section",
     "settings": [
       {
         "type": "blog",

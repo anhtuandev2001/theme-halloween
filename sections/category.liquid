@@ -1,4 +1,4 @@
-<section class="category section">
+
   <div class="container">
     <div class="row category__list">
       {% for collection in section.settings.collection-list %}
@@ -31,11 +31,13 @@
       {% endfor %}
     </div>
   </div>
-</section>
+
 
 {% schema %}
   {
     "name": "category",
+    "tag": "section",
+"class": "section",
     "settings": [
       {
         "type": "text",

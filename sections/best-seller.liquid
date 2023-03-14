@@ -1,4 +1,4 @@
-<section class="section">
+
   <div class="container">
     <h3 class="section__heading h2 text-center">{{section.settings.collection.title}}</h3>
     <div class="row seller__list">
@@ -54,11 +54,13 @@
     <a href="{{ section.settings.collection.url }}" class="all-product font-creep seller__all text-center">{{
       section.settings.linktext }}</a>
   </div>
-</section>
+
 
 {% schema %}
 {
 "name": "collection",
+"tag": "section",
+"class": "section",
 "settings": [
 {
 "type": "collection",
