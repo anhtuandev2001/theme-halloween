@@ -1,0 +1,134 @@
+<header class="header">
+  <div class="nav container">
+    <div class="nav__container">
+      <a href="{{ shop.url }}" class="nav__logo text-main">
+        {% if section.settings.logo != blank %}
+          <img
+            width="{{ image.width }}"
+            height="{{ image.height }}"
+            loading="lazy"
+            src="{{ section.settings.logo | image_url: width: 1720, height: 1720 }}"
+            alt="logo"
+            class="object-cover img__logo">
+        {% else %}
+          {{ shop.name }}
+        {% endif %}
+      </a>
+      <div class="search">
+        <div class="search__menu">
+          <span class="search__menu-icon">
+            {% render 'Sort' %}
+          </span>
+        </div>
+        <div class="search__container">
+          {% comment %} <div class="search__category">
+          <span class="search__category-content hide-one-mobile">
+          All categories
+          <span class="search__category-icon icon__arrowd">
+          {% render 'arrow_down' %}
+          </span>
+          </span>
+          <ul class="search__category-list">
+          <li class="search__category-item">
+          <a class="search__category-item-link" href="#">interior</a>
+          </li>
+          <li class="search__category-item">
+          <a class="search__category-item-link" href="#">clothes</a>
+          </li>
+          <li class="search__category-item">
+          <a class="search__category-item-link" href="#">home tools</a>
+          </li>
+          <li class="search__category-item">
+          <a class="search__category-item-link" href="#">game console</a>
+          </li>
+          <li class="search__category-item">
+          <a class="search__category-item-link" href="#">food</a>
+          </li>
+          </ul>
+          </div> {% endcomment %}
+          <form- class="flex-1">
+            <input
+              type="text"
+              required
+              class="search__input text-light"
+              placeholder="Search anything">
+          </form->
+          <span class="search__form-icon item__hover">
+            {% render 'Search_alt_duotone_line' %}
+          </span>
+
+        </div>
+      </div>
+      <div class="nav__group">
+        <ul class="nav__group-list">
+          {% comment %} <li class="nav__group-item hide-on-mobile">
+            <a href="" class="nav__group-item-link nav__help-link text-light">Help</a>
+          </li>
+          <li class="nav__group-item">
+            <a href="" class="nav__group-item-link nav__account-link">
+              <span class="nav__account-icon icon__account">
+                {% render 'User' %}
+              </span>
+              <p class="nav__group-item-content hide-on-mobile text-main">Account</p>
+            </a>
+          </li> {% endcomment %}
+          <li class="nav__group-item">
+            <a href="{{ routes.cart_url }}" class="nav__group-item-link nav__shoping-link">
+              <span class="nav__shoping-icon icon__shoping">
+                {% render 'Bag_alt' %}
+              </span>
+              <span id="cart-item-count" class="cart__quantity">{{ cart.item_count }}</span>
+              <p class="nav__group-item-content hide-on-mobile text-main">Shoping</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navigation hide-on-table hide-on-mobile">
+      <ul class="navigation__list">
+        {% for link in section.settings.menu.links %}
+          <li class="navigation__item p-relative">
+            <a href="{{ link.url }}" class="navigation__item-link text-main">
+              {{ link.title }}
+            </a>
+            {% if link.links.size > 0 %}
+              <ul class="menus-child p-absolute d-flex">
+                {% for childlink in link.links %}
+                  <li class=" menu-child-item cursos-pointer">
+                    <a href="{{ childlink.url }}" class="navigation__item-link text-main">
+                      {{ childlink.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+  {
+    "name": "header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "logo"
+      }, {
+        "type": "link_list",
+        "id": "menu",
+        "label": "menu"
+      }
+    ],
+    "presets": [
+      {
+        "name": "header",
+        "settings": {},
+        "blocks": []
+      }
+    ]
+  }
+{% endschema %}

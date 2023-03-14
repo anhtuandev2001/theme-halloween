@@ -1,0 +1,16 @@
+{{ 'article.css' | asset_url | stylesheet_tag}}
+
+<section class="section">
+    <div class="container">
+    <h1 class="section__heading h1 text-main text-center">{{ article.title }}</h1>
+    <div class="article-author">
+        <p>{{ article.author }}</p>
+        <span class="article-date">{{ article.created_at }}</span>
+    </div>
+        <div class="article-media">
+            <img src="{{ article.image | img_url: '2000x' }}" alt="" class="article-media full-width object-cover">
+        </div>
+        <div class="article-content text-light">{{ article.content }}</div>
+    </div>
+
+</section>

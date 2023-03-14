@@ -1,0 +1,22 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Dawn",
+    "theme_version": "8.0.0",
+    "theme_author": "Shopify",
+    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
+    "theme_support_url": "https://support.shopify.com/"
+  },
+  
+  {
+    "name": "color",
+    "settings": [
+      {
+        "type": "color",
+        "id": "colors_main",
+        "default": "#FFA900",
+        "label": "color main"
+      }
+    ]
+  }
+]

@@ -1,0 +1,78 @@
+<section
+  class="banner flex-center p-relative"
+  {% if section.settings.image != blank %}
+  style="background: url({{ section.settings.image | img_url: '1500x1010' }}) center/cover no-repeat;"
+  {% endif %}>
+  {% if section.settings.image == blank %}
+    {{ 'lifestyle-2' | placeholder_svg_tag: 'full-width full-height placeholder-bg-cl placeholder-banner' }}
+  {% endif %}
+  <div class="banner__container transfom-center p-absolute full-width">
+    <h3 class="banner__label h3 text-center text-uppercase banner-shadow">{{ section.settings.sub-heading }}</h3>
+    <h1 class="banner__heading h1 text-center banner-shadow">{{ section.settings.heading }}</h1>
+    <p class="banner__deal font-creep text-center text-uppercase banner-shadow">{{ section.settings.sub-heading-2 }}</p>
+    {% comment %} <div id="countdown" class="timer banner__countdown d-flex justify-center">
+    <span class="countdown__item flex-col align-center">
+    <p class="countdomwn__number">00</p>
+    <p class="countdomwn__text">DAYS</p>
+    </span>
+    <img
+    src="./asset/img/icon/colon.svg"
+    alt="#"
+    class="colon">
+    <span class="countdown__item flex-col align-center">
+    <p class="countdomwn__number">00</p>
+    <p class="countdomwn__text">HOURS</p>
+    </span>
+    <img
+    src="./asset/img/icon/colon.svg"
+    alt="#"
+    class="colon">
+    <span class="countdown__item flex-col align-center">
+    <p class="countdomwn__number">00</p>
+    <p class="countdomwn__text">MINS</p>
+    </span>
+    <img
+    src="./asset/img/icon/colon.svg"
+    alt="#"
+    class="colon">
+    <span class="countdown__item flex-col align-center">
+    <p class="countdomwn__number">00</p>
+    <p class="countdomwn__text">SECS</p>
+    </span>
+    </div> {% endcomment %}</div>
+</section>
+
+{% schema %}
+  {
+    "name": "banner",
+    "settings": [
+      {
+        "type": "text",
+        "id": "sub-heading",
+        "label": "sub-heading",
+        "default": "Happy"
+      }, {
+        "type": "text",
+        "id": "heading",
+        "label": "heading",
+        "default": "halloween"
+      }, {
+        "type": "text",
+        "id": "sub-heading-2",
+        "label": "sub-heading-2",
+        "default": "Super deal"
+      }, {
+        "type": "image_picker",
+        "id": "image",
+        "label": "background image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "banner",
+        "settings": {},
+        "blocks": []
+      }
+    ]
+  }
+{% endschema %}

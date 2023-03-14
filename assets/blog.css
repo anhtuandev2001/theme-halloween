@@ -1,0 +1,17 @@
+.main-blog__author{
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin-top: 20px;
+}
+
+.main-blog__date{
+    color: gray;
+}
+
+.main-blog__title{
+    margin-top: 20px;
+}
+
+.main-blog__list{
+    row-gap: 30px;
+}

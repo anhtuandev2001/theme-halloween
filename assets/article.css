@@ -1,0 +1,16 @@
+.article-author{
+    color: #d2c1c1;
+    display: flex;
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+.article-content{
+    font-size: 2.5rem;
+    margin-top: 30px;
+    line-height: 1.7;
+}
+
+.article-date{
+    margin-left: 20px;
+}

@@ -1,0 +1,51 @@
+.cart__product-title{
+    margin-top: 20px;
+    font-size: 2rem;
+}
+
+.cart__item{
+    gap: 30px;
+}
+
+.cart__input{
+    height: 40px;
+    font-size: 2rem;
+    margin: 20px 0;
+    padding: 0 10px;   
+}
+
+.cart__shop-name{
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+.cart__continue{
+    margin-top: 20px;
+}
+
+.cart__btn{
+    margin-right: 30px;
+    margin-top: 30px;
+}
+
+.cart__remove{
+}
+
+.cart__product-price{
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+.cart__product-price{
+    margin-top: 20px;
+}
+
+.cart__total{
+    font-size: 2rem;
+    line-height: 1.4;
+}
+
+.cart__title{
+    font-size: 2rem;
+    line-height: 1.2;
+}

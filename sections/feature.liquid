@@ -1,0 +1,70 @@
+<section class="section">
+  <div class="container overflow-hiden">
+    <div class="row feature__container">
+      {% for collection in section.settings.collection %}
+      <div class="col l-6 c-12">
+        <h3 class="section__heading h2">{{ collection.title }}</h3>
+        <div class="row feature__list">
+          {% for product in collection.products limit: 4 %}
+          <div class="col l-6 c-12">
+            <div class="feature__item d-flex align-center justify-between">
+              {% if collection.image != blank %}
+              <a href="{{ product.url }}" class=" d-block text-light"><img src="{{ product.featured_image | img_url: '500x400' }}" alt="spike" width="{{ image.width }}"
+                height="{{ image.height }}" loading="lazy" class="feature__img"></a>
+              {% else %}
+              {{ 'product-1' | placeholder_svg_tag: 'feature__img plateholder-product plateholder-bg-cl' }}
+              {% endif collection.image == blank %}
+              <div class="feature__content font-lato">
+                <a href="{{ product.url }}" class="d-block text-light feature__name">{{ product.title }}</a>
+                <span class="feature__price">{{ product.price | money_without_trailing_zeros }}</span>
+                <div class="add-to-cart">
+                  <select class="product-select hide" name="id">
+                    {% for variant in product.variants %}
+                    <option value="{{ variant.id }}">
+                      {{ variant.title }}
+                    </option>
+                    {% endfor %}
+                  </select>
+                  <input type="number" class="hide quantity" name="quantity" value="1" min="1" max="100">
+                  <button type="button" class="feature__btn add-to-cart-btn btn btn--shop-now product__btn d-block full-width">Add
+                    to cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <a href="{{ collection.url }}" class="all-product text-center font-creep feature__all text-center">{{
+          section.settings.linktext }}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+"name": "feature",
+"settings": [
+{
+"type": "collection_list",
+"id": "collection",
+"label": "collection",
+"limit": 2
+}, {
+"type": "text",
+"id": "linktext",
+"label": "link text",
+"default": "all products"
+}
+],
+"blocks": [],
+"presets": [
+{
+"name": "feature",
+"settings": {},
+"blocks": []
+}
+]
+}
+{% endschema %}

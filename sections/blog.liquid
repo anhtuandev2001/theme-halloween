@@ -1,0 +1,48 @@
+<section class="section">
+  <div class="container">
+    <a href="{{ section.settings.blog.url }}" class="d-block section__heading blog__heading h2 text-center">{{ section.settings.blog.title }}</a>
+    <div class="row blog__list">
+      {% for article in section.settings.blog.articles %}
+        <div class="col l-4">
+          <a href="{{ article.url }}" class="blog__item">
+            {%- if article.image != blank -%}
+              <img
+                src="{{ article.image | img_url: '900x800'}}"
+                alt="blog"
+                width="{{ image.width }}"
+                height="{{ image.height }}"
+                loading="lazy"
+                src="{{ section.settings.image | image_url: width: 1720, height: 1720 }}"
+                class="blog__img full-width">
+            {%- elsif article.image == blank -%}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-bg-cl decor__img js-decor-img placeholder-decor full-width' }}
+            {%- endif -%}
+            <p class="blog__content h5">{{ article.title }}</p>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "blog",
+    "settings": [
+      {
+        "type": "blog",
+        "id": "blog",
+        "label": "blog"
+      }
+    ],
+    "blocks": [],
+    "presets": [
+      {
+        "name": "blog",
+        "settings": {},
+        "blocks": []
+      }
+    ]
+  }
+{% endschema %}

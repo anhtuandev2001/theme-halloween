@@ -1,0 +1,17 @@
+.collection__product-item{
+}
+
+.collection__product-title{
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+.collection__product-price{
+    font-size: 1.4rem;
+    line-height: 1.2;
+}
+
+.collection__product-list{
+    row-gap: 50px;
+    --gap: 20px
+}

@@ -1,0 +1,95 @@
+<section class="section">
+  <div class="container">
+    <h3 class="section__heading h2 text-center">{{section.settings.collection.title}}</h3>
+    <div class="row seller__list">
+      {% for product in section.settings.collection.products limit: section.settings.limit %}
+      <div class="col l-3 c-6">
+        <div class="seller__item">
+          <div class="seller__media flex-center">
+            <a href="{{ product.url }}">
+              <img src="" alt="seller-1" class="seller__img" <img width="{{ image.width }}" height="{{ image.height }}"
+                loading="lazy">
+            </a>
+          </div>
+          <div class="seller__slide">
+            {% for variant in product.variants limit: 2 %}
+            {% if variant.featured_image != blank %}
+            <img src="{{ variant.featured_image | img_url: '600x400' }}" alt="slide" width="{{ image.width }}"
+              height="{{ image.height }}" loading="lazy"
+              class="slide__img {% if forloop.first == true %} slide__img--active  {% endif %} object-cover">
+            {% else %}
+            <img src="{{ product.featured_image | img_url: '600x400' }}" alt="slide" width="{{ image.width }}"
+              height="{{ image.height }}" loading="lazy" class="slide__img object-cover slide__img--active">
+            {% endif %}
+            {% endfor %}
+          </div>
+          {% for variant in product.variants limit: 2 %}
+          <div class="seller__content font-lato {% if forloop.first == true %} seller__content--active {% endif %}">
+            <a href="{{ product.url }}" class="seller__name d-block text-light">{{ product.title }}</a>
+            {% if variant.compare_at_price != variant.price and variant.compare_at_price != null %}
+            <span class="seller__price seller__price--sale">{{ variant.price | money_without_trailing_zeros }}</span>
+            <span class="seller__price seller__price--text-d">{{ variant.compare_at_price | money_without_trailing_zeros
+              }}</span>
+            {% else %}
+            <span class="seller__price">{{ variant.price | money_without_trailing_zeros }}</span>
+            {% endif %}
+            </div>
+          {% endfor %}
+          <div class="add-to-cart">
+            <select class="product-select" name="id">
+              {% for variant in product.variants %}
+              <option value="{{ variant.id }}">
+                {{ variant.title }}
+              </option>
+              {% endfor %}
+            </select>
+            <input type="number" class="quantity" name="quantity" value="1" min="1" max="100">
+            <button  type="button" class="add-to-cart-btn btn btn--shop-now product__btn d-block full-width">Add
+              to cart</button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <a href="{{ section.settings.collection.url }}" class="all-product font-creep seller__all text-center">{{
+      section.settings.linktext }}</a>
+  </div>
+</section>
+
+{% schema %}
+{
+"name": "collection",
+"settings": [
+{
+"type": "collection",
+"id": "collection",
+"label": "collection"
+},
+{
+"type": "range",
+"id": "limit",
+"min": 1,
+"max": 10,
+"step": 1,
+"label": "limit",
+"default": 4
+},
+{
+"type": "text",
+"id": "linktext",
+"label": "link text",
+"default": "all product"
+}
+],
+"presets": [
+{
+"name": "best-seller",
+"settings": {
+},
+"blocks": [
+
+]
+}
+]
+}
+{% endschema %}

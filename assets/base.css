@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Lato:wght@400;700&display=swap');
+
+:root{
+    --cl-btn: #FFA900;
+    --cl-hover: #FFC045;
+    --cl-hover: #FFA900;
+
+    --bg-body: #141414;
+    --bg-item: #1E1E1E;
+    --text-light: #ffff;
+
+    --header-height: 100px;
+
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: 'Creepster', cursive;
+}
+
+body{
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  margin-top: 156px;
+}
+
+img{    
+    max-width: 100%;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+/* heading */
+.h1, .h2, .h3, .h4, .h5, .h6{
+    font-family: 'Creepster', cursive;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin: 0;
+}
+
+.h1{
+    text-transform: uppercase;
+    font-size: 9.6rem;
+    line-height: 1.2;
+
+}
+
+.h2{
+    font-size: 4rem;
+    line-height: 1.2;
+}
+
+.h3{
+    font-size: 3.2rem;
+    line-height: 1.25;
+}
+
+.h4{
+}
+
+.h5{
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+.h6{
+    
+}
+/*  */
+
+/* font creep */
+.font-creep{
+    font-family: 'Creepster', cursive;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+.font-lato{
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+/*  */
+
+.overflow-hiden{
+    overflow: hidden;
+}
+
+/* text */
+.text-center{
+    text-align: center;
+}
+
+.text-uppercase{
+    text-transform: uppercase;
+}
+
+.text-light{
+    color: var(--text-light);
+}
+
+.text-main{
+    color: var(--cl-main);
+}
+/*  */
+
+/* position */
+.p-relative{
+    position: relative;
+}
+
+.p-absolute{
+    position: absolute;
+}
+/*  */
+
+/* btn */
+.btn{
+    font-size: 1.6rem;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background-color: var(--cl-btn);
+    color: var(--bg-body);
+    font-family: 'Creepster', cursive;
+    border: none;
+    display: inline-block;
+}
+
+.btn:hover{
+    background-color: var(--cl-hover);
+    cursor: pointer;
+}
+
+.btn--shop-now{
+    padding: 15px 30px;
+}
+/*  */
+
+/* d-block */
+.d-block{
+    display: block;
+}
+/*  */
+
+/* border */
+.boder-r-50{
+    border-radius: 50%;
+}
+
+/* flex */
+.d-flex{
+    display: flex;
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gap-0{
+    --gap:0;
+}
+    
+.justify-between{
+    justify-content: space-between;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.flex-no-wrap{
+    flex-wrap: nowrap;
+}
+
+.flex-1{
+    flex: 1;
+}
+
+.flex-col{
+    flex-direction: column;
+}
+
+.row-gap-30{
+    row-gap: 30px;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+/*  */
+
+/* width */
+.full-width{
+    width: 100%;
+}
+
+.full-height{
+    height: 100%;
+}
+/*  */
+
+/* img */
+.object-cover{
+    object-fit: cover;
+}
+
+/* transform center */
+.transfom-center{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/* box model */
+.p-0{
+    padding: 0;
+}
+
+.mg-0{
+    margin: 0;
+}
+
+.mg-center{
+    margin: 0 auto;
+}
+/*  */
+
+@media (min-width:1200px) {
+    
+}

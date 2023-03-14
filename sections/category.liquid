@@ -1,0 +1,65 @@
+<section class="category section">
+  <div class="container">
+    <div class="row category__list">
+      {% for collection in section.settings.collection-list %}
+        <div class="col l-6 c-12">
+          <div
+            class="category__item d-flex align-center p-relative "
+            {% if section.settings.image != blank %}
+            style="background: url({{ section.settings.image | img_url: '1500x1010' }}) center/cover no-repeat;"
+            {% endif %}>
+            {% if section.settings.image == blank %}
+              {{ 'lifestyle-2' | placeholder_svg_tag: 'full-width full-height placeholder-bg-cl placeholder-category p-absolute' }}
+            {% endif %}
+            {% if collection.image != blank %}
+              <img
+                src="{{ collection.image | img_url: 'medium' }}"
+                alt="img"
+                width="{{ image.width }}"
+                height="{{ image.height }}"
+                loading="lazy"
+                class="category__img object-cover">
+            {% else %}
+              {{ 'product-1' | placeholder_svg_tag: 'category__img plateholder-product plateholder-bg-cl' }}
+            {% endif %}
+            <div class="category__content">
+              <h3 class="category__heading h2">{{ collection.title }}</h3>
+              <a href="{{ collection.url }}" class="btn btn--shop-now category__btn">{{ section.settings.linktext }}</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "category",
+    "settings": [
+      {
+        "type": "text",
+        "label": "button text",
+        "id": "linktext",
+        "default": "Shop now"
+      }, {
+        "type": "image_picker",
+        "id": "image",
+        "label": "background image"
+      }, {
+        "type": "collection_list",
+        "id": "collection-list",
+        "label": "collection list",
+        "limit": 4
+      }
+    ],
+    "blocks": [],
+    "presets": [
+      {
+        "name": "category",
+        "settings": {},
+        "blocks": []
+      }
+    ]
+  }
+{% endschema %}

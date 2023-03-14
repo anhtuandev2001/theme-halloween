@@ -1,0 +1,20 @@
+{
+    "name": "header",
+    "type": "header",
+    "sections": {
+      "header": {
+        "type": "header",
+        "blocks": {
+        
+        },
+        "block_order": [
+        ],
+        "settings": {
+        }
+      }
+    },
+    
+    "order": [
+      "header"
+    ]
+}
